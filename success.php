@@ -75,7 +75,6 @@ $titleid=sqlsrv_fetch_array($results);
             <?php
                 //$_FILES GLOBAL VARIABLE TO HANDLE FILES
                 if(isset($_POST['submit'])){
-                    print_r($_FILES);
 
                     //to declare file to be uploaded, MIME (MULTIMEDIA)
                     $finfo = new finfo(FILEINFO_MIME_TYPE);
@@ -127,7 +126,7 @@ $titleid=sqlsrv_fetch_array($results);
                 }
             ?>
 
-<?php
+            <?php
                 //$_FILES GLOBAL VARIABLE TO HANDLE FILES
                 if(isset($_POST['submit_abs'])){
 

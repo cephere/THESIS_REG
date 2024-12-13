@@ -64,7 +64,6 @@
 
                         $searchTerm = isset($_POST['search']) ? $_POST['search'] : '';
 
-                        // Main query with filtering
                         $sql = "SELECT MANUSID, NAME, SIZE, PATH, M.TITLEID, TITLE_
                                 FROM MANUS AS M
                                 LEFT OUTER JOIN TITLE AS T ON M.TITLEID = T.TITLEID";
@@ -80,7 +79,6 @@
                             die(print_r(sqlsrv_errors(), true));
                         }
 
-                        // Count query with the same filtering
                         $sql2 = "SELECT COUNT(*) AS TOTAL 
                                 FROM MANUS AS M
                                 LEFT OUTER JOIN TITLE AS T ON M.TITLEID = T.TITLEID";
@@ -96,8 +94,6 @@
 
                         $totalcount = sqlsrv_fetch_array($countResults);
                     ?>
-
-
 
                         <center>
                             <form method="POST">
