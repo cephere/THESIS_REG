@@ -63,7 +63,6 @@
                     ?>
 
                     <center>
-                        <!-- Login Form -->
                         <form id="regis" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <label for="user" style="padding-left:10px">USERID:</label>
                             <input class="login" type="text" name="user" id="user" value="<?php echo isset($_POST['user']) ? htmlspecialchars($_POST['user']) : ''; ?>">
@@ -77,8 +76,7 @@
                             <br>
                             <button class="button" type="submit" name="submit">Submit</button>
                         </form>
-
-                        <!-- Display error or success message -->
+                        
                         <?php if ($successMessage) : ?>
                             <h2 style="color:red;"><?php echo $successMessage; ?></h2>
                         <?php endif; ?>
