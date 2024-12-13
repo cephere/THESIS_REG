@@ -15,14 +15,12 @@
                 <div>
                     <img class="lasalle" src="img/lasalle dasma logo.png" alt="">
 
-                    <h1 style="text-align:center;">Login</h1>
+                    <h3 style="text-align:center; padding:50px">Login</h3>
 
                     <?php
-                    // Initialize error variables
                     $useridErr = $passwordErr = "";
                     $successMessage = "";
 
-                    // Check if form is submitted
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if (empty($_POST['user'])) {
                             $useridErr = "UserID is required";
@@ -33,7 +31,6 @@
                         }
 
                         if ($useridErr == "" && $passwordErr == "") {
-                            // Database connection
                             $serverName = "DESKTOP-FQOOPV8\SQLEXPRESS";
                             $connectionOptions = [
                                 "Database" => "WEBAPP",
@@ -51,13 +48,11 @@
                             $password = $_POST["pass"];
                             $encrypt = md5($password);
 
-                            // SQL query to verify user credentials
                             $sql = "SELECT * FROM LOGIN2 WHERE USERID = ? AND PASSWORD_ = ?";
                             $params = array($userid, $encrypt);
                             $stmt = sqlsrv_query($conn, $sql, $params);
 
                             if (sqlsrv_fetch_array($stmt)) {
-                                // Login successful, redirect to report page
                                 header("Location: admindash.php");
                                 exit();
                             } else {
@@ -70,17 +65,17 @@
                     <center>
                         <!-- Login Form -->
                         <form id="regis" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                            <label for="user">USERID:</label>
-                            <input type="text" name="user" id="user" value="<?php echo isset($_POST['user']) ? htmlspecialchars($_POST['user']) : ''; ?>">
+                            <label for="user" style="padding-left:10px">USERID:</label>
+                            <input class="login" type="text" name="user" id="user" value="<?php echo isset($_POST['user']) ? htmlspecialchars($_POST['user']) : ''; ?>">
                             <br>
                             <span style="color:red;"><?php echo $useridErr; ?></span>
                             <br>
                             <label for="pass">Password:</label>
-                            <input type="password" name="pass" id="pass">
+                            <input class="login" type="password" name="pass" id="pass">
                             <br>
                             <span style="color:red;"><?php echo $passwordErr; ?></span>
                             <br>
-                            <button type="submit" name="submit">Submit</button>
+                            <button class="button" type="submit" name="submit">Submit</button>
                         </form>
 
                         <!-- Display error or success message -->

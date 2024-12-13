@@ -371,11 +371,11 @@
                             $id=$titleid['TITLEID'];
 
 
-                            $table2_1="INSERT INTO AUTHOR (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$authorl1', '$authorf1', '$authorm1', '$id')"; 
-                            $table2_2="INSERT INTO AUTHOR (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$authorl1', '$authorf1', '$authorm1', '$id')"; 
-                            $table2_3="INSERT INTO AUTHOR  (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$authorl3', '$authorf3', '$authorm3','$id')"; 
-                            $table3="INSERT INTO ADVISER  (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$adviserl1', '$adviserf1', '$adviserm1','$id')"; 
-                            $table4="INSERT INTO COADVISER (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$adviserl2', '$adviserf2', '$adviserm2','$id')"; 
+                            $table2_1="INSERT INTO AUTHOR (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$authorl1', '$authorm1', '$authorf1', '$id')"; 
+                            $table2_2="INSERT INTO AUTHOR (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$authorl2', '$authorm2', '$authorf1', '$id')"; 
+                            $table2_3="INSERT INTO AUTHOR  (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$authorl3', '$authorm3', '$authorf3','$id')"; 
+                            $table3="INSERT INTO ADVISER  (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$adviserl1', '$adviserm1', '$adviserf1','$id')"; 
+                            $table4="INSERT INTO COADVISER (LAST_NAME, MIDDLE_NAME, FIRST_NAME, TITLEID) VALUES ('$adviserl2', '$adviserm2', '$adviserf2','$id')"; 
                             $table5="INSERT INTO CONTACT (EMAIL, MOBILE_NUMBER, TITLEID) VALUES ('$email', '$contact','$id')";
 
 

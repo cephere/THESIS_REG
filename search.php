@@ -67,13 +67,14 @@
 
                     $searchTerm = isset($_POST['search']) ? $_POST['search'] : '';
 
-                    $sql = "SELECT T.TITLEID, T.TITLE_, T.PROGRAM, MIN(A.LAST_NAME) AS A_LAST_NAME, MIN(A.FIRST_NAME) AS A_FIRST_NAME, 
-                            AD.LAST_NAME AS AD_LAST_NAME, AD.FIRST_NAME AS AD_FIRST_NAME
+                    $sql = "SELECT T.TITLEID, T.TITLE_, T.PROGRAM, MIN(A.LAST_NAME) AS A_LAST_NAME, MAX(A.FIRST_NAME) AS A_FIRST_NAME, 
+                            AD.LAST_NAME AS AD_LAST_NAME, AD.FIRST_NAME AS AD_FIRST_NAME, M.PATH
                             FROM TITLE AS T 
                             INNER JOIN AUTHOR AS A ON T.TITLEID = A.TITLEID
                             INNER JOIN ADVISER AS AD ON T.TITLEID = AD.TITLEID
+                            LEFT OUTER JOIN ABSTRACT AS M ON T.TITLEID = M.TITLEID
                             WHERE T.TITLE_ LIKE ? OR A.LAST_NAME LIKE ? OR A.FIRST_NAME LIKE ? OR AD.LAST_NAME LIKE ? OR AD.FIRST_NAME LIKE ?
-                            GROUP BY T.TITLEID, T.TITLE_, T.PROGRAM, AD.LAST_NAME, AD.FIRST_NAME";
+                            GROUP BY T.TITLEID, T.TITLE_, T.PROGRAM, AD.LAST_NAME, AD.FIRST_NAME, M.PATH";
 
                     $params = ['%' . $searchTerm . '%', '%' . $searchTerm . '%', '%' . $searchTerm . '%', '%' . $searchTerm . '%', '%' . $searchTerm . '%'];
 
@@ -125,6 +126,7 @@
                                     <th>Author First Name</th>
                                     <th>Adviser Last Name</th>
                                     <th>Adviser First Name</th>
+                                    <th>Abstract</th>
                                 </tr>
                             </thead>
 
@@ -137,6 +139,12 @@
                                 $fieldname5 = $rows['A_FIRST_NAME'];
                                 $fieldname6 = $rows['AD_LAST_NAME'];
                                 $fieldname7 = $rows['AD_FIRST_NAME'];
+                                $fieldname8 = $rows['PATH'];
+
+                                $cheese  = "http://localhost/webapp/THESIS_REG/uploads/";
+
+                                $change = substr($fieldname8, 42);
+                                $wow = $cheese.$change;
 
                                 echo '<tr>
                                         <td>' . $fieldname1 . '</td>
@@ -146,6 +154,14 @@
                                         <td>' . $fieldname5 . '</td>
                                         <td>' . $fieldname6 . '</td>
                                         <td>' . $fieldname7 . '</td>
+                                        <td>';
+    
+                                            if ($fieldname8 !== null) {
+                                                echo '<form action="' . htmlspecialchars($wow) . '" method="POST">
+                                                        <button type="submit">VIEW</button>
+                                                        </form>';
+                                            }
+                                        echo '</td>
                                     </tr>';
                             }
                             ?>

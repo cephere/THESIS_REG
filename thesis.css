@@ -11,6 +11,7 @@ body{
 
 .dash-container{
     flex: 1;
+    padding-top: 2%;
     height: 75vh;
     background: white;
     box-shadow: 0 0 5px rgb(0, 46, 29); 
@@ -127,6 +128,7 @@ p{
 }
 
 input{
+    padding-left: 10px;
     background-color: white;
     border: 2px solid rgb(161, 161, 161);
     border-radius: 20px;
@@ -224,6 +226,10 @@ th, td, h5{
     width: 1000px;
 }
 
+.all-cont {
+    display: none;
+}
+
 .title-cont {
     display: none;
 }
@@ -238,6 +244,10 @@ th, td, h5{
 
 .advi-cont{
     display: none;
+}
+
+#all-table:checked ~ .all-cont {
+    display: block;
 }
 
 #title-table:checked ~ .title-cont {
@@ -273,3 +283,15 @@ tr:hover{
     background-color: rgb(130, 178, 130);
 }
 
+.file-upload{
+    width: 1000px;
+    height: 30px;
+}
+
+.login{
+    width: 500px;
+}
+
+.pads{
+    padding-top: 5%;
+}

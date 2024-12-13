@@ -34,14 +34,20 @@
             <div class="dash">  
                 <div class="dash-container">
                     <h4 onClick="registerpageFunction()">REGISTER</h4>
+                    <p class="pads">This the registration page, this is where users will register and upload their thesis. </p>
+                    <p>Click Register to start</p>
                 </div>
 
                 <div class="dash-container">
                     <h4 onClick="searchpageFunction()">SEARCH</h4>
+                    <p class="pads">This the search page, this is where users search existing thesis and view their abstract. </p>
+                    <p>Click Search to start</p>
                 </div>
 
                 <div class="dash-container">
                     <h4 onClick="loginpageFunction()">LOGIN</h4>
+                    <p class="pads">This the login page, this where admins and moderators access the reports. </p>
+                    <p>Click Login to start</p>
                 </div>
             </div>  
         </div>
